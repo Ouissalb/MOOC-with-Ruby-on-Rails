@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   get 'users/new'
 
   root 'pages#home'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   get  '/account', to: 'pages#account'
   get  '/signout', to: 'pages#signout'
   get  '/signup',  to: 'users#new'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
