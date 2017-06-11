@@ -5,3 +5,8 @@ ouissal:
   name: Ouissal Benameur 
   email: ouissalbenameur@gmail.com
   password_digest: <%= User.digest('password') %>
+
+elliot:
+    name: Elliot Raymond
+    email: elliotraymond@gmail.com
+    password_digest: <%= User.digest('password') %>
