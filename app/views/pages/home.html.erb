@@ -1,7 +1,22 @@
-<% provide(:title, "Home") %>
-<div class="jumbotron" id = "jumbImg" style="height: 400px;">
-  <h1>Free Online Courses</h1>
-  <div ></div>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Find courses</a></p>
-</div>
 
+<% provide(:title, "Home") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="course_form">
+        <%= render 'shared/course_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+
+    <div class="jumbotron" id = "jumbImg" style="height: 400px;">
+    <h1>Free Online Courses</h1>
+    <div ></div>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Find courses</a></p>
+    </div>
+
+<% end %>

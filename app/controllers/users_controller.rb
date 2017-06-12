@@ -4,7 +4,14 @@ before_action :correct_user,   only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
+    @courses = @user.courses.paginate(page: params[:page])
+
   end
+
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+
 
   def new
     @user = User.new
@@ -57,11 +64,25 @@ before_action :correct_user,   only: [:edit, :update]
     redirect_to(root_url) unless @user == current_user
   end
 
+
+
+  # PRIVATE !!
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+    end
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 
 end

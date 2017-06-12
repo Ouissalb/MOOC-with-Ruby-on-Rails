@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users
+  resources :courses,          only: [:create, :destroy]
   get 'users/new'
 
   root 'pages#home'

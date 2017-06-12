@@ -3,7 +3,8 @@ require 'test_helper'
 class CourseTest < ActiveSupport::TestCase
    def setup
      @user = users(:ouissal)
-     @course = Course.new(content: "Lorem ipsum", user_id: @user.id)
+    # @course = Course.new(content: "Lorem ipsum", user_id: @user.id)
+      @course = @user.courses.build(content: "Lorem ipsum")
    end
 
    test "should be valid" do
@@ -24,5 +25,9 @@ class CourseTest < ActiveSupport::TestCase
       @course.content = "a" * 141
       assert_not @course.valid?
     end
+
+    test "order should be most recent first" do
+    assert_equal courses(:most_recent), Course.first
+  end
 
 end

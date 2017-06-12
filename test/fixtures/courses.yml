@@ -1,9 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user_id: 
+c_video:
+  content: "C course"
+  created_at: <%= 10.minutes.ago %>
+  user: ouissal
 
-two:
-  content: MyText
-  user_id: 
+ruby_video:
+  content: "A video of a Ruby course "
+  created_at: <%= 3.years.ago %>
+  user: ouissal
+
+java_video:
+  content: "A video of a java course"
+  created_at: <%= 5.hours.ago %>
+  user: ouissal
+
+most_recent:
+  content: "course"
+  created_at: <%= Time.zone.now %>
+  user: ouissal
+
+  
+<% 30.times do |n| %>
+course_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: ouissal
+<% end %>

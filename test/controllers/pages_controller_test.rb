@@ -8,6 +8,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
 
+
   test "should get home" do
     get :home
     assert_response :success
