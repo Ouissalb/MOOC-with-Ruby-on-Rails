@@ -1,8 +1,18 @@
 <li id="course-<%= course.id %>">
+<% youtubeURL = course.content %>
+<% youtubeURL[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/] %>
+<% video_embed_id = $5 %>
+
   <%= link_to gravatar_for(course.user, size: 50), course.user %>
   <span class="user"><%= link_to course.user.name, course.user %></span>
-  <span class="content"><%= course.content %></span>
+ <span class="content"></span>
+  <iframe title="Ouissal Project Player"  width="560" height="315"  src="http://www.youtube.com/embed/<%= video_embed_id %>" frameborder="0" allowfullscreen></iframe>
   <span class="timestamp">
     Posted <%= time_ago_in_words(course.created_at) %> ago.
+        <% if current_user?(course.user) %>
+      <%= link_to "delete", course, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
   </span>
+  
 </li> 

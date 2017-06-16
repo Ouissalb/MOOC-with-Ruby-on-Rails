@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
 
   def home
-    @course = current_user.courses.build if logged_in?
+    if logged_in?
+      @course  = current_user.courses.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
+
 
   def courses
   end

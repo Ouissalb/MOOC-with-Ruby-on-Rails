@@ -18,4 +18,14 @@ class CoursesControllerTest < ActionController::TestCase
     end
     assert_redirected_to login_url
   end
+  
+    test "should redirect destroy for wrong course" do
+    log_in_as(users(:ouissal))
+    course = courses(:javascript)
+    assert_no_difference 'Course.count' do
+      delete course_path(course)
+    end
+    assert_redirected_to root_url
+  end
+
 end

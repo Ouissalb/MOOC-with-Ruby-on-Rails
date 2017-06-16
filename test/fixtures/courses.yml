@@ -19,6 +19,26 @@ most_recent:
   content: "course"
   created_at: <%= Time.zone.now %>
   user: ouissal
+  
+javascript:
+  content: "A video of a Javascript course"
+  created_at: <%= 2.years.ago %>
+  user: elliot
+
+artificial_intelligence:
+  content: "A video of an AI course"
+  created_at: <%= 3.days.ago %>
+  user: elliot
+
+Mathematics:
+  content: "A video of a Maths course"
+  created_at: <%= 10.minutes.ago %>
+  user: lana
+
+Electronics:
+  content: "Electronics course video"
+  created_at: <%= 4.hours.ago %>
+  user: lana
 
   
 <% 30.times do |n| %>
