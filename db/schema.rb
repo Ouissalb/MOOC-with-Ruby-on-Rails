@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611193348) do
+ActiveRecord::Schema.define(version: 20170616165405) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "content"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170611193348) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
+    t.string   "status"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
